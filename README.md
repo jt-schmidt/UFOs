@@ -15,10 +15,15 @@ Purpose of this module challenge was to use a combination of HTML, bootstrap, an
 
 ## Results
 
+In order to perform search, following pseudo steps are necessary:
+
+1.  We need to collect inputs from user on what they want to filter.  This is achieved through use of D3 SelectAll upon a change event.  We use this event to call a function to update our filters.
+
 **D3 Select used to call Update Filters function when Input changes**
 ``` javascript
  d3.selectAll("input").on("change", updateFilters);
  ``` 
+2.  Using an empty "dictionary" called Filters, we collect the values input by user to filter and they are organized according to the id for input box they are applied:  date, city, state, shape.
 
 **Function to Update Filters**
 ``` javascript
@@ -37,6 +42,8 @@ Purpose of this module challenge was to use a combination of HTML, bootstrap, an
     filterTable(updateFilters);
 ```
 
+3.  Using the now populated Filters dictionary, 
+
 **Function to Update Table Based on Filters**
 ``` javascript
    let filteredData = tableData;
@@ -47,5 +54,7 @@ Purpose of this module challenge was to use a combination of HTML, bootstrap, an
     buildTable(filteredData);
   }
 ```
+
+![example](/example.png)
 
 ## Summary
