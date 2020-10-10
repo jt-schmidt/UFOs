@@ -42,7 +42,9 @@ In order to perform search, following pseudo steps are necessary:
     filterTable(updateFilters);
 ```
 
-3.  Using the now populated Filters dictionary, 
+3.  Using the now populated Filters dictionary, we need to update our table to only show rows with matching data.  For reference, these resources were used:
+   [Object.entries reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+   [forEach loop reference](https://masteringjs.io/tutorials/fundamentals/foreach-object)
 
 **Function to Update Table Based on Filters**
 ``` javascript
@@ -54,7 +56,13 @@ In order to perform search, following pseudo steps are necessary:
     buildTable(filteredData);
   }
 ```
-
+Example highlighting 2 filters applied.
 ![example](/example.png)
 
 ## Summary
+
+One drawback of this web page is the cases where no data is found.  Empty table is returned, but to be more user friendly there should be some confirmatin message to the user that the filter conditions they have applied do not exist in the data set.  Furthermore, the data set is static and limited to a brief period of 2010.  To make more useful, I would recommend the following changes:
+- Collect user input to update the data set with new UFO sightings to expand the data set or connect site via API to a UFO database.
+- Further refine the filter to return message if no data found.
+- Make the input boxes reactive so they update table as inputs are entered not requiring a full entry and <enter> key to be pressed.
+- Allow partial or case insensitive search
